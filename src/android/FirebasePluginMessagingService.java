@@ -102,9 +102,9 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
             if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
             {
 				int accentID = getResources().getIdentifier("accent", "color", getPackageName());
-                notificationBuilder.setColor(getResources().getColor(accentID, null));				
+                notificationBuilder.setColor(getResources().getColor(accentID, null));
             }
-            
+
             Notification notification = notificationBuilder.build();
             if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
 				int iconID = android.R.id.icon;
@@ -118,7 +118,7 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
             bundle.putBoolean("tap", false);
             bundle.putString("title", title);
             bundle.putString("body", messageBody);
-            FirebasePlugin.sendNotification(bundle);
+            FirebasePlugin.sendNotification(bundle, this.getApplicationContext());
         }
     }
 }
